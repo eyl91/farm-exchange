@@ -101,16 +101,22 @@ $(document).ready(function () {
     console.log('RIGHT HERE!!!!!! --------> ', marketObject);
     let dataContainer = $('dataContainer');
     let marketContent = 
-    `<div class="marketHeader">
-    <h3 id="marketName">${marketObject.marketname}</h3>
-    <h4 id="address">${marketObject.Address}</h4>
+    `<div class="info">
+      <div class="img">
+      <img class="center-block" id="farm" src="../img/farm.png" alt="farm"> 
+      </div>     
+    <div class="marketHeader">
+      <h3 class="text-center" id="marketName">${marketObject.marketname}</h3>
     </div>
-    <div class="schedule">
-    <p id="schedule">${marketObject.Schedule}</p>
-    </div>
+
+    <div class="addressTime">
+      <p><span id="address">Address: </span><span>${marketObject.Address}</span></p>
+      <p><span id="schedule">Schedule: </span><span>${marketObject.Schedule}</span></p>
+     </div>
+
     <div class="productsContainer">
     <p class="products" id="products">${marketObject.Products}</p>
-    </div>
+    
     <div class="amenitiesContainer">
     <ul id="amentities">
     <li>${marketObject.outdoors}</li>
@@ -119,8 +125,10 @@ $(document).ready(function () {
     <li>${marketObject.alcohol}</li>
     </ul>
     </div>
-    <iframe src="${marketObject.GoogleLink}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
   `;
+   // <iframe src="${marketObject.GoogleLink}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+   //  </div>
     $('#dataContainer').append(marketContent);
   }
   /* --------------------------------------------------------- Event delegation for market button links */
