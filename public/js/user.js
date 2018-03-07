@@ -72,16 +72,20 @@ $(document).ready(function () {
    
     let dataContainer = $('dataContainer');
     let marketContent = 
-    `<div class="marketHeader">
-    <h3 id="marketName">${marketObject.marketname}</h3>
-    <h4 id="address">${marketObject.Address}</h4>
+    `<div class="info">
+      <div class="img">
+      <img class="center-block" id="farm" src="../img/farm.png" alt="farm"> 
+      </div>     
+    <div class="marketHeader">
+      <h3 class="text-center" id="marketName">${marketObject.marketname}</h3>
     </div>
-    <div class="schedule">
-    <p id="schedule">${marketObject.Schedule}</p>
-    </div>
-    <div class="productsContainer">
-    <ul class="products" id="products"></ul>
-    </div>
+    <div class=" addressTime">
+      <ul class="infoList">
+        <li><span class="text-center" id="address">Address: </span><span>${marketObject.Address}</span></li>
+        <li id="scheduleStyle"><span class="text-center" id="schedule">Schedule: </span><span>${marketObject.Schedule}</span></li>
+        <li><span class="text-center" id="products">Products: </li>
+      </ul>
+     </div>
     <div class="amenitiesContainer">
     <ul id="amentities">
     <li>${marketObject.outdoors} <input type="text" class="input-val" id=outdoors name="input"><button class=input-submit data-name="outdoors" data-id="${marketObject.usda_id}" type="submit">Submit</button></li> 
