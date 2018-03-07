@@ -119,11 +119,14 @@ $(document).ready(function () {
     
     <div class="amenitiesContainer">
     <ul id="amentities">
-    <li>${marketObject.outdoors}</li>
-    <li>${marketObject.restroom}</li>
-    <li>${marketObject.petFriendly}</li>
-    <li>${marketObject.alcohol}</li>
+    <li>${marketObject.outdoors} <input type="text" class="input-val" id=outdoors name="input"><button class=input-submit data-name="outdoors" data-id="${marketObject.usda_id}" type="submit">Submit</button></li> 
+    <li>${marketObject.restroom} <input type="text" class="input-val" id=restroom name="input"><button class=input-submit data-name="restromm" data-id="${marketObject.usda_id}" type="submit">Submit</button></li>
+    <li>${marketObject.petFriendly} <input type="text" class="input-val" id=petFriendly name="input"><button class=input-submit data-name="petFriendly" data-id="${marketObject.usda_id}" type="submit">Submit</button></li>
+    <li>${marketObject.alcohol} <input type="text" class="input-val" id=alcohol name="input"><button class=input-submit data-name="alcohol" data-id="${marketObject.usda_id}" type="submit">Submit</button></li>
     </ul>
+    </div>
+    <iframe src="${marketObject.GoogleLink}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
     </div>
     </div>
   `;
@@ -156,6 +159,22 @@ $(document).ready(function () {
     })
 
 
+
+  });
+
+  $(document).on('click', '.input-submit ', function (event) {
+    // event.preventDefault();
+    const userSubmit = $(".input-val").val().trim();
+    const userInputParam = $(".input-submit").attr('data-name');
+    const marketId = $(".input-submit").attr('data-id');
+    userInput(marketId, userInputParam, userSubmit);
+
+    $.get(`/api/market-data/${marketId}`, function (body) {
+      marketInfoGenerator(body);
+    })
+      .fail(function () {
+        alert("error");
+      });
 
   });
 });
