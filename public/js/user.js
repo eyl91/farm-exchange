@@ -109,13 +109,14 @@ $(document).ready(function () {
       <h3 class="text-center" id="marketName">${marketObject.marketname}</h3>
     </div>
 
-    <div class="addressTime">
-      <p><span id="address">Address: </span><span>${marketObject.Address}</span></p>
-      <p><span id="schedule">Schedule: </span><span>${marketObject.Schedule}</span></p>
+    <div class=" addressTime">
+      <ul class="infoList">
+        <li><span class="text-center" id="address">Address: </span><span>${marketObject.Address}</span></li>
+        <li id="scheduleStyle"><span class="text-center" id="schedule">Schedule: </span><span>${marketObject.Schedule}</span></li>
+        <li><span class="text-center" id="products">Products: </span><span>${marketObject.Products}</span></li>
+      </ul>
      </div>
-
-    <div class="productsContainer">
-    <p class="products" id="products">${marketObject.Products}</p>
+  
     
     <div class="amenitiesContainer">
     <ul id="amentities">
